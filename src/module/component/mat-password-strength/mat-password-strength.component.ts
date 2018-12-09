@@ -4,7 +4,8 @@ import {AbstractControl, FormControl, Validators} from '@angular/forms';
 export enum Colors {
   primary = 'primary',
   accent = 'accent',
-  warn = 'warn'
+  warn = 'warn',
+  secondary = 'secondary'
 }
 
 export enum Criteria {
@@ -79,10 +80,12 @@ export class MatPasswordStrengthComponent implements OnInit, OnChanges {
 
     if (this._strength <= 20) {
       return Colors.warn;
-    } else if (this._strength <= 80) {
+    } else if (this._strength <= 60) {
       return Colors.accent;
-    } else {
+    } else if (this._strength <= 80) {
       return Colors.primary;
+    } else {
+      return Colors.secondary;
     }
   }
 
